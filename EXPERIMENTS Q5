@@ -1,0 +1,37 @@
+# Superscalar Execution Simulation
+
+n = int(input("Enter number of instructions: "))
+
+superscalar_cycles = (n + 1) // 2
+
+print("\n--- SUPERSCALAR EXECUTION ---")
+
+for cycle in range(1, superscalar_cycles + 1):
+
+    instruction1 = (cycle - 1) * 2 + 1
+    instruction2 = instruction1 + 1
+
+    if instruction2 <= n:
+        print(f"Cycle {cycle}: I{instruction1} and I{instruction2} executed in parallel.")
+    else:
+        print(f"Cycle {cycle}: I{instruction1} executed.")
+
+print("\n--- OUT-OF-ORDER EXECUTION ---")
+print("Independent instructions are executed first.")
+
+print("\n--- SPECULATIVE EXECUTION ---")
+print("Processor predicts the branch and executes instructions.")
+
+print("\n--- SMT / HYPER-THREADING ---")
+print("Two instruction streams share processor resources.")
+
+normal_cycles = n
+
+speedup = normal_cycles / superscalar_cycles
+
+print("\n--- PERFORMANCE ---")
+print("Normal Execution Cycles =", normal_cycles)
+print("Superscalar Cycles      =", superscalar_cycles)
+print("Speedup                 =", round(speedup, 2))
+
+print("\nInstruction throughput is improved using parallel execution.")
