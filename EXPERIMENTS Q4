@@ -1,0 +1,53 @@
+# Pipeline Hazard Simulation
+
+print("PIPELINE HAZARD SIMULATION")
+
+print("\n1. Data Hazard")
+print("2. Control Hazard")
+print("3. Structural Hazard")
+
+choice = int(input("Enter choice: "))
+
+if choice == 1:
+
+    print("\n--- DATA HAZARD ---")
+
+    print("Instruction 1: R1 = R2 + R3")
+    print("Instruction 2: R4 = R1 + R5")
+
+    print("\nHazard: Instruction 2 depends on R1.")
+
+    print("\nWithout Forwarding:")
+    print("Stall inserted for 2 cycles.")
+
+    print("\nWith Forwarding:")
+    print("Result of Instruction 1 forwarded to Instruction 2.")
+    print("Stall cycles = 0")
+
+
+elif choice == 2:
+
+    print("\n--- CONTROL HAZARD ---")
+
+    print("Instruction 1: BEQ R1, R2, LABEL")
+    print("Instruction 2: ADD R3, R4, R5")
+
+    print("\nBranch instruction causes control hazard.")
+    print("Branch Prediction is used.")
+    print("Correct prediction: No pipeline flush.")
+
+
+elif choice == 3:
+
+    print("\n--- STRUCTURAL HAZARD ---")
+
+    print("Instruction 1: Memory Read")
+    print("Instruction 2: Memory Write")
+
+    print("\nBoth instructions require the same memory resource.")
+    print("Hazard detected!")
+    print("Solution: Stall or provide separate resources.")
+
+
+else:
+    print("Invalid choice")
