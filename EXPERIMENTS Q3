@@ -1,0 +1,43 @@
+# 5-Stage Instruction Pipeline
+
+n = int(input("Enter number of instructions: "))
+
+pipeline_cycles = n + 4
+non_pipeline_cycles = n * 5
+
+print("\n5-Stage Pipeline:")
+print("1. Fetch")
+print("2. Decode")
+print("3. Execute")
+print("4. Memory")
+print("5. Write Back")
+
+print("\n--- PIPELINED EXECUTION ---")
+
+for cycle in range(1, pipeline_cycles + 1):
+
+    stages = []
+
+    if cycle <= n:
+        stages.append(f"I{cycle}-Fetch")
+
+    if 2 <= cycle <= n + 1:
+        stages.append(f"I{cycle - 1}-Decode")
+
+    if 3 <= cycle <= n + 2:
+        stages.append(f"I{cycle - 2}-Execute")
+
+    if 4 <= cycle <= n + 3:
+        stages.append(f"I{cycle - 3}-Memory")
+
+    if 5 <= cycle <= n + 4:
+        stages.append(f"I{cycle - 4}-WriteBack")
+
+    print("Cycle", cycle, ":", " | ".join(stages))
+
+speedup = non_pipeline_cycles / pipeline_cycles
+
+print("\n--- PERFORMANCE ---")
+print("Non-Pipelined Cycles =", non_pipeline_cycles)
+print("Pipelined Cycles     =", pipeline_cycles)
+print("Speedup              =", round(speedup, 2))
