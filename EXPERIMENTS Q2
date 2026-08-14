@@ -1,0 +1,29 @@
+# Single Bus and Multi Bus Organization
+
+R1 = int(input("Enter value of R1: "))
+R2 = int(input("Enter value of R2: "))
+
+print("\n--- SINGLE BUS ORGANIZATION ---")
+
+print("Cycle 1: R1 -> Bus -> ALU")
+print("Cycle 2: R2 -> Bus -> ALU")
+
+R3 = R1 + R2
+
+print("Cycle 3: ALU Result -> R3")
+print("R3 =", R3)
+print("Total Cycles = 3")
+
+print("\n--- MULTI BUS ORGANIZATION ---")
+
+R3 = R1 + R2
+
+print("Cycle 1: R1 and R2 -> ALU simultaneously")
+print("Cycle 2: ALU Result -> R3")
+print("R3 =", R3)
+print("Total Cycles = 2")
+
+print("\n--- COMPARISON ---")
+print("Single Bus Cycles =", 3)
+print("Multi Bus Cycles  =", 2)
+print("Multi-bus organization is faster.")
